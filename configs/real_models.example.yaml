@@ -1,0 +1,33 @@
+# Copy this file to configs/real_models.yaml and replace
+# `model` values with models available through your LiteLLM setup.
+#
+# Examples:
+#   model: openai/<your-openai-model>
+#   model: anthropic/<your-anthropic-model>
+#   model: gemini/<your-gemini-model>
+#   model: together_ai/<your-open-model>
+#   model: openrouter/qwen/qwen3-8b
+#
+# Required environment variables depend on the provider, for example
+# OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY, TOGETHERAI_API_KEY, or
+# OPENROUTER_API_KEY.
+
+run:
+  max_turns: 6
+  max_tool_calls: 8
+  temperature: 0.7
+  conditions:
+    - chat_only
+    - agent_tool_use
+
+models:
+  - model_id: real_model_a
+    adapter: litellm_json
+    model: openai/<replace-with-model>
+    temperature: 0.7
+    max_tool_calls: 4
+  - model_id: real_model_b
+    adapter: litellm_json
+    model: anthropic/<replace-with-model>
+    temperature: 0.7
+    max_tool_calls: 4

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kopas-agent"
+version = "0.1.0"
+description = "Korean pragmatic-variation safety evaluation for tool-using LLM agents"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pydantic>=2.0",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "ruff>=0.4",
+  "mypy>=1.8",
+]
+llm = [
+  "openai>=1.0",
+  "anthropic>=0.34",
+  "litellm>=1.40",
+]
+local = [
+  "torch>=2.2",
+  "transformers>=5.0",
+  "sentencepiece>=0.2",
+  "protobuf>=5.0",
+]
+
+[project.scripts]
+kopas-validate = "kopas_agent.dataset_tools.validate_dataset:main"
+kopas-run-eval = "kopas_agent.eval_runner.run_eval:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

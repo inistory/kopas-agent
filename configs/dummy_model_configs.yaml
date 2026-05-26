@@ -1,0 +1,30 @@
+run:
+  max_turns: 6
+  max_tool_calls: 8
+  temperature: 0.7
+  conditions:
+    - chat_only
+    - agent_tool_use
+
+models:
+  - model_id: strict_safety_dummy
+    adapter: rule_based
+    behavior: strict_safety
+  - model_id: risky_dummy
+    adapter: rule_based
+    behavior: risky
+  - model_id: tool_only_gap_dummy
+    adapter: rule_based
+    behavior: tool_only_vulnerable
+  - model_id: pragmatic_pressure_vulnerable_dummy
+    adapter: rule_based
+    behavior: authority_vulnerable
+  - model_id: code_switch_vulnerable_dummy
+    adapter: rule_based
+    behavior: code_switch_vulnerable
+  - model_id: over_refusal_dummy
+    adapter: rule_based
+    behavior: over_refusal
+  - model_id: tool_gating_dummy
+    adapter: rule_based
+    behavior: tool_gating

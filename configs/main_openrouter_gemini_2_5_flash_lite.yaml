@@ -1,0 +1,23 @@
+run:
+  # Main run scope:
+  # - dataset: human-reviewed content-preserving AgentHarm Korean pragmatic set
+  # - unit: intent_family_id x Korean pragmatic_form
+  # - conditions: chat_only and agent_tool_use
+  max_turns: 6
+  max_tool_calls: 8
+  temperature: 0.7
+  conditions:
+    - chat_only
+    - agent_tool_use
+
+models:
+  - model_id: gemini_2_5_flash_lite_openrouter
+    adapter: openrouter_json
+    model: google/gemini-2.5-flash-lite
+    env_file: .env
+    api_key_env: OPENROUTER_API_KEY
+    temperature: 0.7
+    max_tool_calls: 4
+    max_tokens: 768
+    timeout: 60
+    app_name: KoPAS-Agent

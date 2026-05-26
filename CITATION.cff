@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite the accompanying paper. Author metadata will be updated after the anonymous review period."
+title: "Same Intent, Different Actions: Request Framing as a Safety Variable in LLM Agents"
+type: software
+authors:
+  - name: "Anonymous authors"
+license: MIT
+version: "0.1.0"

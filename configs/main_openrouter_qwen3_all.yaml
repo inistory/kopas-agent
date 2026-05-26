@@ -1,0 +1,49 @@
+run:
+  # Main run scope:
+  # - dataset: human-reviewed KoPAS pragmatic main set
+  # - unit: intent_family_id x Korean pragmatic_form
+  # - conditions: chat_only and agent_tool_use
+  # Qwen no-thinking control is applied uniformly across all pragmatic forms.
+  max_turns: 6
+  max_tool_calls: 8
+  temperature: 0.7
+  conditions:
+    - chat_only
+    - agent_tool_use
+
+models:
+  - model_id: qwen3_8b_openrouter
+    adapter: openrouter_json
+    model: qwen/qwen3-8b
+    env_file: .env
+    api_key_env: OPENROUTER_API_KEY
+    temperature: 0.7
+    qwen_no_think: true
+    max_tool_calls: 4
+    max_tokens: 768
+    timeout: 60
+    app_name: KoPAS-Agent
+
+  - model_id: qwen3_14b_openrouter
+    adapter: openrouter_json
+    model: qwen/qwen3-14b
+    env_file: .env
+    api_key_env: OPENROUTER_API_KEY
+    temperature: 0.7
+    qwen_no_think: true
+    max_tool_calls: 4
+    max_tokens: 768
+    timeout: 60
+    app_name: KoPAS-Agent
+
+  - model_id: qwen3_32b_openrouter
+    adapter: openrouter_json
+    model: qwen/qwen3-32b
+    env_file: .env
+    api_key_env: OPENROUTER_API_KEY
+    temperature: 0.7
+    qwen_no_think: true
+    max_tool_calls: 4
+    max_tokens: 768
+    timeout: 60
+    app_name: KoPAS-Agent
